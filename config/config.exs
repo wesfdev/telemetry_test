@@ -65,7 +65,13 @@ config :telemetry_test, TelemetryTest.PromEx,
   disabled: false,
   manual_metrics_start_delay: :no_delay,
   drop_metrics_groups: [],
-  grafana: :disabled,
+  grafana: [
+    host: "http://localhost:3000",
+    # Authenticate via Basic Auth
+    username: "admin",
+    password: "admin",
+    upload_dashboards_on_start: true
+  ],
   metrics_server: :disabled
 
 # Import environment specific config. This must remain at the bottom

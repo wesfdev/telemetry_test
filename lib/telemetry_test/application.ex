@@ -9,6 +9,7 @@ defmodule TelemetryTest.Application do
   def start(_type, _args) do
     children = [
       TelemetryTest.PromEx,
+      TelemetryTest.CodeCoverage.Metrics,
       TelemetryTestWeb.Telemetry,
       TelemetryTest.Repo,
       {DNSCluster, query: Application.get_env(:telemetry_test, :dns_cluster_query) || :ignore},

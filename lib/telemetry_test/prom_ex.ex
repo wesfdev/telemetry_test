@@ -65,19 +65,20 @@ defmodule TelemetryTest.PromEx do
       {Plugins.Phoenix, router: TelemetryTestWeb.Router, endpoint: TelemetryTestWeb.Endpoint},
       Plugins.Ecto,
       # Plugins.Oban,
-      Plugins.PhoenixLiveView
+      Plugins.PhoenixLiveView,
       # Plugins.Absinthe,
       # Plugins.Broadway,
 
       # Add your own PromEx metrics plugins
       # TelemetryTest.Users.PromExPlugin
+      TelemetryTest.CodeCoverage.PromEx
     ]
   end
 
   @impl true
   def dashboard_assigns do
     [
-      datasource_id: "YOUR_PROMETHEUS_DATASOURCE_ID",
+      datasource_id: "my_prometeous_datasource_name",
       default_selected_interval: "30s"
     ]
   end
@@ -87,9 +88,9 @@ defmodule TelemetryTest.PromEx do
     [
       # PromEx built in Grafana dashboards
       {:prom_ex, "application.json"},
-      {:prom_ex, "beam.json"}
-      # {:prom_ex, "phoenix.json"},
-      # {:prom_ex, "ecto.json"},
+      {:prom_ex, "beam.json"},
+      {:prom_ex, "phoenix.json"},
+      {:prom_ex, "ecto.json"}
       # {:prom_ex, "oban.json"},
       # {:prom_ex, "phoenix_live_view.json"},
       # {:prom_ex, "absinthe.json"},
