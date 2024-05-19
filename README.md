@@ -1,4 +1,4 @@
-# TelemetryTest
+# TelemetryTest2
 
 To start your Phoenix server:
 
